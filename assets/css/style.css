@@ -1,0 +1,187 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'menu'
+        'filtro'
+        'principal'
+        'pie';
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabeza {
+    grid-area: menu;
+    background-color: #d3b024;
+}
+
+.cabeza img {
+    width: 200px;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navegacion {
+    font-size: large;
+}
+
+.navegacion ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navegacion li {
+    margin: 10px;
+}
+
+.navegacion a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: red;
+}
+
+.filtro {
+    grid-area: filtro;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: black;
+    padding: 10px;
+    color: #d3b024;
+}
+
+main {
+    grid-area: principal;
+    text-align: center;
+    background-color: rgb(26, 26, 156);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.tarjeta img {
+    width: 100%;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff00cc, #00aaff, #00ff99, #ffcc00);
+    background-size: 100% 120%;
+    animation: holograma 3s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 50px rgba(146, 1, 1, 0.2);
+}
+
+footer {
+    grid-area: pie;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+footer a {
+    color: #d3b024;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.pokeball {
+    display: none;
+}
+
+.filtro img {
+    display: none;
+}
+
+@keyframes holograma {
+    0% {
+        background-position: 100% 100%;
+    }
+
+    50% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@media (min-width:576px) {
+    body {
+        grid-template-columns: 1fr 7fr;
+        grid-template-areas:
+            'menu filtro'
+            'menu principal'
+            'pie pie';
+    }
+
+    .filtro img {
+        width: 100px;
+    }
+
+    .navegacion ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+    }
+
+    .pokeball {
+        display: flex;
+        left: 40px;
+        position: absolute;
+        animation: pokeball 2s infinite ease-in;
+    }
+
+    .pokeball img {
+        width: 110px;
+    }
+
+    @keyframes pokeball {
+
+        0%,
+        100% {
+            bottom: 0px;
+            transform: scaleY(0.8);
+            animation-timing-function: cubic-bezier(0.6, 0, 1, 1);
+        }
+
+        50% {
+            bottom: 200px;
+            transform: scaleY(1.2);
+            animation-timing-function: cubic-bezier(0.3, 0.6, 0.7, 1);
+        }
+    }
+
+    .filtro img {
+        display: flex;
+        animation: pikachu 5s infinite linear;
+    }
+
+    @keyframes pikachu {
+        100% {
+            transform: translateX(80vw);
+        }
+    }
+
+}
